@@ -1,0 +1,7 @@
+find_package(pybind11 QUIET)
+if(pybind11_FOUND)
+    pybind11_add_module(pycamcore pycore.cpp)
+    target_link_libraries(pycamcore PRIVATE geometry toolpath)
+else()
+    message(STATUS "pybind11 not found, skipping python bindings")
+endif()
